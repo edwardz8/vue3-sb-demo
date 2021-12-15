@@ -1,6 +1,7 @@
 <script setup>
 import StoryblokClient from 'storyblok-js-client'
-import { ref, onMounted } from 'vue'
+import { reactive, onMounted } from 'vue'
+import useStoryBridge from '../lib/composables/useStoryBridge'
 // import RichTextResolver from 'storyblok-js-client/dist/rich-text-resolver.es'
 // const { StoryblokBridge } = window
 // const storyblokInstance = new StoryblokBridge()
@@ -11,32 +12,34 @@ const Storyblok = new StoryblokClient({
   accessToken: 'GlBndxRSmbN80CH09ZnaiQtt'
 })
 
-const data = ref(null)
+const state = reactive({ story: {} })
 // const story = ref([])
 
 onMounted(async () => {
-  data.value = await Storyblok.get(`cdn/stories/home`, {
+  const { data } = await Storyblok.get(`cdn/stories/home`, {
     version: 'draft'
-  }).then(({ data }) => data.story)
+  })
+
+  state.story = data.story
+    
+    useStoryBridge(state.story.id, (story) => state.story = story)
 })
 </script>
 
 <template>
   <section>
-    <div v-if="data">
-    <h1>{{ data.name }}</h1>
+    <div v-if="state">
+    <h1>{{ state.story.name }}</h1>
 
     </div>
-    <!-- <div v-if="story.content">
-      <template v-for="component in story.content.body">
+    <div v-if="state.story.content">
+      <template v-for="blok in state.story.content.body" :key="blok._uid">
         <component
-          :is="story.content.component"
-          v-if="story.content.component"
-          :key="component._uid"
-          :blok="component"
+          :is="blok.component"
+          :blok="blok"
         ></component>
       </template>
-    </div> -->
+    </div>
     <!-- <component
       v-if="story.content.component"
       :key="story.content._uid"

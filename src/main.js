@@ -10,7 +10,7 @@ import ProductGrid from './components/ProductGrid.vue'
 const app = createApp(App).use(store).use(router).use(StoryblokVue)
 
 app.component('Teaser', Teaser)
-app.component('Product', ProductGrid)
+app.component('ProductGrid', ProductGrid)
 app.component('Page', Page)
 
 app.mount('#app')
