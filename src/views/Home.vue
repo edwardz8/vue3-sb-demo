@@ -3,9 +3,7 @@ import StoryblokClient from 'storyblok-js-client'
 import { reactive, onMounted } from 'vue'
 import useStoryBridge from '../lib/composables/useStoryBridge'
 // import RichTextResolver from 'storyblok-js-client/dist/rich-text-resolver.es'
-// const { StoryblokBridge } = window
 // const storyblokInstance = new StoryblokBridge()
-
 // const resolver = new RichTextResolver()
 
 const Storyblok = new StoryblokClient({
@@ -13,7 +11,6 @@ const Storyblok = new StoryblokClient({
 })
 
 const state = reactive({ story: {} })
-// const story = ref([])
 
 onMounted(async () => {
   const { data } = await Storyblok.get(`cdn/stories/home`, {
@@ -40,12 +37,6 @@ onMounted(async () => {
         ></component>
       </template>
     </div>
-    <!-- <component
-      v-if="story.content.component"
-      :key="story.content._uid"
-      :blok="story.content"
-      :is="story.content.component"
-    /> -->
   </section>
 </template>
 
