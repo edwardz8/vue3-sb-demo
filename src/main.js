@@ -7,6 +7,9 @@ import Teaser from './components/Teaser.vue'
 import Page from './components/Page.vue'
 import ProductGrid from './components/ProductGrid.vue'
 
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap";
+
 const app = createApp(App).use(store).use(router).use(StoryblokVue)
 
 app.component('Teaser', Teaser)
