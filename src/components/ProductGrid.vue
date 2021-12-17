@@ -27,7 +27,8 @@ export default {
         <img :src="product.image" class="card-img-top" alt="..." />
         <div class="card-body">
           <h5 class="card-title">{{ product.name }}</h5>
-          <a class="btn btn-secondary">View</a>
+          <p class="card-title">{{ product.price }}</p>
+          <!-- <a class="btn btn-secondary">View</a> -->
         </div>
       </div>
     </div>
@@ -41,7 +42,7 @@ export default {
 .grid {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  /* justify-content: center; */
 }
 .list {
   max-width: 1640px;

@@ -2,9 +2,6 @@
 import StoryblokClient from 'storyblok-js-client'
 import { reactive, onMounted } from 'vue'
 import useStoryBridge from '../lib/composables/useStoryBridge'
-// import RichTextResolver from 'storyblok-js-client/dist/rich-text-resolver.es'
-// const storyblokInstance = new StoryblokBridge()
-// const resolver = new RichTextResolver()
 
 const Storyblok = new StoryblokClient({
   accessToken: 'GlBndxRSmbN80CH09ZnaiQtt'
