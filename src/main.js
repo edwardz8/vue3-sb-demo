@@ -6,6 +6,8 @@ import store from './store'
 import Teaser from './components/Teaser.vue'
 import Page from './components/Page.vue'
 import ProductGrid from './components/ProductGrid.vue'
+import ProductVendure from './components/ProductVendure.vue'
+import ProductCentra from './components/ProductCentra.vue'
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap";
@@ -14,6 +16,8 @@ const app = createApp(App).use(store).use(router).use(StoryblokVue)
 
 app.component('Teaser', Teaser)
 app.component('ProductGrid', ProductGrid)
+app.component('ProductVendure', ProductVendure)
+app.component('ProductCentra', ProductCentra)
 app.component('Page', Page)
 
 app.mount('#app')

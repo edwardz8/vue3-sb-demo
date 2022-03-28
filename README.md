@@ -1,5 +1,7 @@
 # vue3-sb-demo
 
+node version 16 
+
 ## Project setup
 ```
 npm install
